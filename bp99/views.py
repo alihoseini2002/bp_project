@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .forms import LoginForm
+from .forms import LoginForm,LoginForm2
 from django.http import HttpResponse
 
 def home(request):
@@ -11,7 +11,6 @@ def home(request):
     return HttpResponse(a)
 
 def ologin(request):
-    print(f"is user logged in : {request.user.is_authenticated}")
     form = LoginForm(request.POST or None)
     context = {
         "form": form
@@ -27,7 +26,6 @@ def ologin(request):
     return render(request, "ologin.html", context)
 
 def dlogin(request):
-    print(f"is user logged in : {request.user.is_authenticated}")
     form = LoginForm2(request.POST or None)
     context = {
         "form": form
@@ -39,6 +37,6 @@ def dlogin(request):
         user = authenticate(request, email=email, password=password,studentNum=studentNum)
         login(request, user)
         context["form"] = LoginForm()
-        return redirect('/ostad')
+        return redirect('/daneshjoo')
 
     return render(request, "ologin.html", context)

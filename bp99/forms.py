@@ -7,6 +7,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "enter your password"})
     )
+
 class LoginForm2(forms.Form):
     studentNum=forms.CharField(
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "enter your student number"})
