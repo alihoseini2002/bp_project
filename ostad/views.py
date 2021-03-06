@@ -7,7 +7,7 @@ def asli(request):
     return HttpResponse(a+ '\t\t\t\t'+b)
 
 def tamarin(request):
-    return HttpResponse('tamarin')
+    return render(request,'tamarin.html')
 
 def videoha(request):
     return HttpResponse('videoha')
